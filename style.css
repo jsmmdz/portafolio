@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+:root {
+  --purple: #34093A;
+  --white: #FBFBF2;
+*/
+}
+
+/* Scroll suave al bajar con el botón */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ====== BODY / FONDO ====== */
+body {
+  margin: 0;
+  font-family: "Unbounded", sans-serif;
+
+  /* Fondo con imagen (CORREGIDO) */
+  background-image: url("https://images.pexels.com/photos/7130551/pexels-photo-7130551.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* fallback correcto */
+  background-color: #ffffff;
+
+  min-height: 100vh;
+  color: var(--white);
+}
+
+/* ====== NAVBAR ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.nav-left a,
+.nav-right a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: var(--purple);
+  font-size: 12px;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  text-decoration: underline;
+}
+
+.nav-center h1 {
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--purple);
+}
+
+/* ====== HERO IMAGEN PRINCIPAL ====== */
+.hero {
+  width: 100%;
+}
+
+/* ====== CSS QUE FALTABA (BOTÓN EN HOME) ====== */
+.hero-home {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+  padding: 40px 60px;
+}
+
+.hero-cta {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Botón */
+.btn-cta {
+  display: inline-block;
+  padding: 16px 44px;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.btnhover:hover {
+  background: var(--purple);
+  color: var(--white);
+  transform: translateY(8px) rotate(3deg);
+ transition: 0.4s ease;
+}
+
+/* Tu imagen del hero */
+.hero-imagen img {
+  width: 50vw;
+  height: 80vh;
+  display: block;
+  opacity: 0.9;
+  object-fit: cover; /* evita deformación */
+}
+
+/* ====== SECCIÓN TRABAJOS DESTACADOS ====== */
+.hero-title {
+  padding: 80px 60px 20px 60px;
+  text-align: left;
+}
+
+.hero-title h2 {
+  color: var(--purple);
+  font-style: italic;
+  font-size: 40px;
+  margin: 0;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+/* ====== GALERÍA ====== */
+.hero-gallery {
+  padding: 40px 60px 100px 60px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.item-carrusel {
+  width: 25%;
+}
+
+.item-carrusel img {
+  width: 100%;
+  display: block;
+}
+
+
+//about me section//
+
+body {
+  
+  font-family: 'Unbounded', sans-serif; 
+  line-height: 1.6; 
+}
+
+/*Sección Principal con Imagen de Fondo*/
+.sobre-mi-seccion {
+  background-image: url("https://images.pexels.com/photos/7130551/pexels-photo-7130551.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  color: var(--purple); 
+  padding: 100px 20px;
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+}
+
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Encabezado*/
+.seccion-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titulo-principal {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.subtitulo {
+  font-size: 1.2rem;
+  color: var(--purple); 
+  font-weight: 300;
+}
+
+/* Contenedor a 2 columnas (Flexbox) */
+.contenido-sobre-mi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: center;
+}
+
+/*Columna Izquierda: Textos*/
+.columna-texto {
+  flex: 1 1 500px; 
+}
+
+.columna-texto p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--purple);
+  line-height: 1.8;
+}
+
+/* =========================================
+   Columna Derecha: Cuadrícula (Grid)
+   ========================================= */
+.columna-estadisticas {
+  flex: 1 1 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 25px;
+}
+
+/* EL EFECTO CRISTAL */
+.tarjeta-stat {
+
+  background: rgba(34, 0, 51, 0.55); 
+  
+  /* El desenfoque del fondo */
+  backdrop-filter: blur(16px);
+  
+ 
+  border: 1px solid rgba(34, 0, 51, 0.2);
+  
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  
+  /* Transición para el efecto hover */
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tarjeta-stat:hover {
+  transform: translateY(-5px); 
+  
+  background: rgba(52, 9, 58, 0.7); 
+}
+
+.stat-numero {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.stat-texto {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white); 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// template section //
+
+
+
+
+* {
+  margin: 0;
+  padding : 0;
+  box-sizing : border-box;
+}
+
+body {
+  font-family: 'unbounded', sans-serif;
+  background-color: var(--white);
+  line-height: 1.6;
+}
+
+/* --- NAVEGACIÓN --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: var(--white);
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.logo .acento {
+  color: var(--light-purple);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--purple);
+  font-weight: 600;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+.btn_contactame {
+
+  padding: 10px 24px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 16px 44px;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.btnhover:hover {
+  background: var(--purple);
+  color: var(--white);
+  transform: translateY(8px) rotate(3deg);
+  transition: 0.4s ease
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 50px;
+  background-color: var(--white);
+}
+
+.hero-texto {
+  flex: 1;
+  padding-right: 40px;
+}
+
+
+.hero h1 {
+  font-size: 5.5rem;
+  font-weight: 800;
+  color: var(--purple);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.acento {
+  color: var(--medium-purple);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.botones {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primario {
+  background-color: var(--white);
+  color: var(--blanco);
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid var(--purple);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+  padding: 10px 24px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.hero-imagen {
+  width: 40vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-left: auto; 
+  display: block;  
+  border: 1vw solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; 
+}
+
+.hero-imagen:hover {
+  transform: scale(1.10);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.imagen-central:hover {
+  transform: scale(1.10);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.imagen-central {
+  width: 100%;        /* Hace que la imagen ocupe el ancho de su columna */
+  height: auto;       /* Mantiene las proporciones correctas */
+  border-radius: 12px;
+  display: block;  
+  border: 1vw solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease; 
+}
+
+
+.detalles-proyecto {
+  heihgt:100vh;
+  display: flex;
+  gap: 40px;
+  padding: 80px 50px;
+  background-color: var(--white);
+  flex: 1;
+}
+
+.columna {
+  flex: 1;
+}
+
+
+
+
+.cita-columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.cita-columna cite {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--morado-claro);
+}
+
+/* --- ROL E IMPACTO (BOTTOM SECTION) --- */
+.rol-impacto {
+  heihgt:100vh;
+  background-color: var(--white); 
+  border-radius: 40px 40px 0 0;
+  padding: 80px 50px;
+  display: flex;
+  gap: 60px;
+}
+
+.rol-columna, .impacto-columna {
+  flex: 1;
+}
+
+.rol-columna h2, .impacto-columna h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.rol-columna p, .impacto-columna p {
+  margin-bottom: 30px;
+}
+
+
+
+.lista-check li {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--morado-oscuro);
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Creamos un "check" morado claro con CSS */
+.lista-check li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: var(--medium-purple);
+  font-size: 1.2rem;
+}
+
+.estadisticas-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 3.5rem;
+  color: var(--purple);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat p {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--medium-purple);
+  margin-top: 5px;
+}
