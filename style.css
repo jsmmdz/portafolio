@@ -476,3 +476,31 @@ header.hero .hero-imagen:hover, .imagen-central:hover {
   color: var(--medium-purple);
   margin-top: 5px;
 }
+
+/* =========================================
+   7. EFECTO CURSOR (MOTION BLUR)
+   ========================================= */
+
+/* Ocultar el cursor nativo en el fondo y elementos interactivos */
+body, a, button, .btnhover, .btn_contactame, .btn-cta, .btn-primario, .btn-secundario {
+  cursor: none !important;
+}
+
+/* Estilo de los círculos inyectados por el JS */
+.box-trail {
+  position: fixed;
+  width: 1rem;
+  height: 1rem;
+  top: 0;
+  left: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+  /* Usando tu variable definida en el :root */
+  background: var(--purple-glow);
+  border-radius: 50%;
+  filter: blur(4px);
+  /* Crucial para que los clics funcionen a través de la estela */
+  pointer-events: none; 
+  z-index: 9999;
+  opacity: 0;
+}
