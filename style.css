@@ -1,73 +1,160 @@
+/* =========================================
+   0. IMPORTACIONES Y VARIABLES GLOBALES
+   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 
 :root {
   --purple: #34093A;
   --white: #FBFBF2;
-*/
+  --transparente: rgba(255, 255, 255, 0.15);
+  --light-purple: #CEB0DD; 
+  --medium-purple: #7C4384;
+  --glass-dark: rgba(34, 0, 58, 0.2); /* Para fondos sutiles sobre imágenes */
+  /* --- GLASS VARIABLES --- */
+  --pink: #F3A8CC; 
+  
+  --glass-bg: rgba(217, 137, 230, 0.1); 
+  --glass-border: rgba(243, 168, 204, 0.25); 
+  --pink-glow: rgba(243, 168, 204, 0.7);    
+  
+  --purple-glow: rgba(52, 9, 58, 0.7);      
+  --dark-border: rgba(52, 9, 58, 0.6);       
 }
 
-/* Scroll suave al bajar con el botón */
+
+/* =========================================
+   1. RESET Y ESTILOS BASE (APLICA A TODO)
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* ====== BODY / FONDO ====== */
 body {
-  margin: 0;
-  font-family: "Unbounded", sans-serif;
-
-  /* Fondo con imagen (CORREGIDO) */
+  font-family: 'Unbounded', sans-serif;
+  line-height: 1.6;
+  
+  /* FONDO MAESTRO UNIFICADO */
   background-image: url("https://images.pexels.com/photos/7130551/pexels-photo-7130551.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* fallback correcto */
-  background-color: #ffffff;
-
+  background-attachment: fixed; /* Mantiene el fondo quieto al hacer scroll */
+  
   min-height: 100vh;
-  color: var(--white);
+  color: var(--purple); 
 }
 
-/* ====== NAVBAR ====== */
+/* Acentos de texto globales */
+.acento {
+  color: var(--medium-purple);
+}
+.acento-texto { /* Para la sección mis roles */
+  color: var(--purple);
+}
+
+/* =========================================
+   2. NAVEGACIÓN (NAVBAR GLASSMORPHISM)
+   ========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 50px;
+  /* Fondo transparente con ligero desenfoque para que no se pierda el menú */
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  position: sticky; /* Hace que el menú acompañe al hacer scroll */
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-left a,
-.nav-right a {
-  margin-right: 20px;
+.navbar .logo {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--purple);
+  letter-spacing: 1px;
+}
+
+.navbar .logo .acento {
+  color: var(--light-purple);
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navbar .nav-links a {
   text-decoration: none;
   color: var(--purple);
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.nav-left a:hover,
-.nav-right a:hover {
+.navbar .nav-links a:hover {
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.nav-center h1 {
-  font-size: 35px;
+/* =========================================
+   3. BOTONES GLOBALES
+   ========================================= */
+.btn_contactame, .btn-cta, .btn-primario, .btn-secundario {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 14px;
+  transition: 0.4s ease;
   letter-spacing: 1px;
-  margin: 0;
+}
+
+.btn_contactame, .btn-cta {
+  padding: 16px 44px;
+  border: 2px solid var(--purple);
   color: var(--purple);
 }
 
-/* ====== HERO IMAGEN PRINCIPAL ====== */
-.hero {
+.btn-primario {
+  background-color: var(--purple);
+  color: var(--white);
+  padding: 12px 24px;
+  border: 2px solid var(--purple);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--purple);
+  padding: 12px 24px;
+  border: 2px solid var(--purple);
+}
+
+/* Efecto hover interactivo para botones */
+.btnhover:hover {
+  background: var(--purple);
+  color: var(--white);
+  transform: translateY(8px) rotate(3deg);
+}
+
+/* =========================================
+   4. PÁGINA: INICIO (HOME)
+   ========================================= */
+div.hero { 
   width: 100%;
 }
 
-/* ====== CSS QUE FALTABA (BOTÓN EN HOME) ====== */
 .hero-home {
   display: flex;
   gap: 40px;
   align-items: flex-end;
-  padding: 40px 60px;
+  padding: 100px 60px;
+  background: transparent; /* Aseguramos que se vea el fondo maestro */
 }
 
 .hero-cta {
@@ -77,35 +164,16 @@ body {
   align-items: flex-end;
 }
 
-/* Botón */
-.btn-cta {
-  display: inline-block;
-  padding: 16px 44px;
-  border: 2px solid var(--purple);
-  color: var(--purple);
-  text-decoration: none;
-  border-radius: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.btnhover:hover {
-  background: var(--purple);
-  color: var(--white);
-  transform: translateY(8px) rotate(3deg);
- transition: 0.4s ease;
-}
-
-/* Tu imagen del hero */
-.hero-imagen img {
+.hero-home .hero-imagen img {
   width: 50vw;
   height: 80vh;
   display: block;
-  opacity: 0.9;
-  object-fit: cover; /* evita deformación */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* ====== SECCIÓN TRABAJOS DESTACADOS ====== */
+/* Trabajos Destacados */
 .hero-title {
   padding: 80px 60px 20px 60px;
   text-align: left;
@@ -120,7 +188,6 @@ body {
   text-underline-offset: 10px;
 }
 
-/* ====== GALERÍA ====== */
 .hero-gallery {
   padding: 40px 60px 100px 60px;
   display: flex;
@@ -129,35 +196,24 @@ body {
 }
 
 .item-carrusel {
-  width: 25%;
+  width: 50%;
 }
 
 .item-carrusel img {
   width: 100%;
   display: block;
+  border-radius: 12px; /* Añadido un poco de radio para que combine */
 }
 
-
-//about me section//
-
-body {
-  
-  font-family: 'Unbounded', sans-serif; 
-  line-height: 1.6; 
-}
-
-/*Sección Principal con Imagen de Fondo*/
+/* =========================================
+   5. PÁGINA: SOBRE MÍ (ABOUT ME)
+   ========================================= */
 .sobre-mi-seccion {
-  background-image: url("https://images.pexels.com/photos/7130551/pexels-photo-7130551.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  color: var(--purple); 
   padding: 100px 20px;
   min-height: 100vh; 
   display: flex;
   align-items: center;
+  background: transparent;
 }
 
 .contenedor {
@@ -166,7 +222,6 @@ body {
   width: 100%;
 }
 
-/* Encabezado*/
 .seccion-header {
   text-align: center;
   margin-bottom: 60px;
@@ -185,7 +240,6 @@ body {
   font-weight: 300;
 }
 
-/* Contenedor a 2 columnas (Flexbox) */
 .contenido-sobre-mi {
   display: flex;
   flex-wrap: wrap;
@@ -193,7 +247,6 @@ body {
   align-items: center;
 }
 
-/*Columna Izquierda: Textos*/
 .columna-texto {
   flex: 1 1 500px; 
 }
@@ -203,133 +256,73 @@ body {
   font-size: 1rem;
   color: var(--purple);
   line-height: 1.8;
+  font-weight: 500; /* Ligeramente más grueso para legibilidad */
 }
 
-/* =========================================
-   Columna Derecha: Cuadrícula (Grid)
-   ========================================= */
+/* --- NUEVO ESTILO DE TARJETAS (CONTENEDOR) --- */
 .columna-estadisticas {
   flex: 1 1 400px;
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   gap: 25px;
+  position: relative; 
+  z-index: 1;
 }
 
-/* EL EFECTO CRISTAL */
-.tarjeta-stat {
 
-  background: rgba(34, 0, 51, 0.55); 
+/* --- ESTILO DE TARJETAS (CAJAS) --- */
+.tarjeta-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1rem; 
   
-  /* El desenfoque del fondo */
-  backdrop-filter: blur(16px);
-  
- 
-  border: 1px solid rgba(34, 0, 51, 0.2);
-  
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  
-  border-radius: 16px;
-  padding: 40px 20px;
-  text-align: center;
-  
-  /* Transición para el efecto hover */
-  transition: transform 0.3s ease, background 0.3s ease;
+  /* Efecto Cristal Rosa */
+  background-color: var(--glass-bg); 
+  border: 1px solid var(--glass-border); 
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0.9rem;
+  transition: all ease 0.5s;
 }
 
 .tarjeta-stat:hover {
+  /* Resplandor Morado Oscuro */
+  box-shadow: 0px 0px 25px 2px var(--purple-glow); 
+  border: 1px solid var(--dark-border); 
   transform: translateY(-5px); 
-  
-  background: rgba(52, 9, 58, 0.7); 
 }
 
+/* Tipografía de las tarjetas */
 .stat-numero {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 5px;
+  font-size: 3.5rem; 
+  font-weight: 700; 
+  letter-spacing: 0.0em;
+  color: var(--purple); 
+  margin-bottom: 0.5rem;
 }
 
 .stat-texto {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--white); 
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-// template section //
-
-
-
-
-* {
   margin: 0;
-  padding : 0;
-  box-sizing : border-box;
-}
-
-body {
-  font-family: 'unbounded', sans-serif;
-  background-color: var(--white);
-  line-height: 1.6;
-}
-
-/* --- NAVEGACIÓN --- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background-color: var(--white);
-}
-
-.logo {
-  font-size: 35px;
-  font-weight: 800;
+  font-size: 0.9em;
+  font-weight: 400;
+  letter-spacing: 0.0em;
   color: var(--purple);
+  text-align: center;
 }
 
-.logo .acento {
-  color: var(--light-purple);
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--purple);
-  font-weight: 600;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-.btn_contactame {
-
-  padding: 10px 24px;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 4px;
-  padding: 16px 44px;
-  border: 2px solid var(--purple);
-  color: var(--purple);
-  text-decoration: none;
-  border-radius: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.btnhover:hover {
-  background: var(--purple);
-  color: var(--white);
-  transform: translateY(8px) rotate(3deg);
-  transition: 0.4s ease
-}
-
-/* --- HERO SECTION --- */
-.hero {
+/* =========================================
+   6. PÁGINA: PROYECTO RELAY (TEMPLATE)
+   ========================================= */
+/* Hero del Template */
+header.hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 50px;
-  background-color: var(--white);
+  padding: 100px 50px;
+  background: transparent;
+  color: var(--purple);
 }
 
 .hero-texto {
@@ -337,8 +330,7 @@ body {
   padding-right: 40px;
 }
 
-
-.hero h1 {
+header.hero h1 {
   font-size: 5.5rem;
   font-weight: 800;
   color: var(--purple);
@@ -346,14 +338,12 @@ body {
   margin-bottom: 20px;
 }
 
-.acento {
-  color: var(--medium-purple);
-}
-
-.hero p {
+header.hero p {
   font-size: 1.1rem;
   margin-bottom: 30px;
   max-width: 500px;
+  color: var(--purple);
+  font-weight: 500;
 }
 
 .botones {
@@ -361,76 +351,48 @@ body {
   gap: 15px;
 }
 
-.btn-primario {
-  background-color: var(--white);
-  color: var(--blanco);
-  padding: 12px 24px;
-  text-decoration: none;
-  font-weight: 700;
-  border: 2px solid var(--purple);
-}
-
-.btn-secundario {
-  background-color: transparent;
-  color: var(--purple);
-  border: 2px solid var(--purple);
-  padding: 10px 24px;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 4px;
-}
-
-.hero-imagen {
+/* Video/Imagen del Template */
+header.hero .hero-imagen {
   width: 40vw;
   height: auto;
   object-fit: cover;
   border-radius: 12px;
   margin-left: auto; 
   display: block;  
-  border: 1vw solid rgba(255, 255, 255, 0.3);
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease; 
 }
 
-.hero-imagen:hover {
-  transform: scale(1.10);
-  border-color: rgba(255, 255, 255, 0.6);
+header.hero .hero-imagen:hover, .imagen-central:hover {
+  transform: scale(1.05); 
+  border-color: rgba(255, 255, 255, 0.8);
 }
-
-
-.imagen-central:hover {
-  transform: scale(1.10);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-
 
 .imagen-central {
-  width: 100%;        /* Hace que la imagen ocupe el ancho de su columna */
-  height: auto;       /* Mantiene las proporciones correctas */
+  width: 100%;       
+  height: auto;       
   border-radius: 12px;
   display: block;  
-  border: 1vw solid rgba(255, 255, 255, 0.3);
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
   transition: transform 0.3s ease; 
 }
 
-
+/* Detalles del Proyecto */
 .detalles-proyecto {
-  heihgt:100vh;
   display: flex;
   gap: 40px;
-  padding: 80px 50px;
-  background-color: var(--white);
-  flex: 1;
+  padding: 100px 50px;
+  background: transparent;
+  color: var(--purple);
 }
 
 .columna {
   flex: 1;
 }
-
-
-
 
 .cita-columna {
   display: flex;
@@ -438,21 +400,22 @@ body {
   justify-content: center;
 }
 
-
 .cita-columna cite {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--morado-claro);
+  color: var(--light-purple);
 }
 
-/* --- ROL E IMPACTO (BOTTOM SECTION) --- */
+/* Rol e Impacto */
 .rol-impacto {
-  heihgt:100vh;
-  background-color: var(--white); 
+  border-top: 1px solid rgba(52, 9, 58, 0.1);
+  background: rgba(255, 255, 255, 0.2); /* Efecto cristal */
+  backdrop-filter: blur(5px);
   border-radius: 40px 40px 0 0;
   padding: 80px 50px;
   display: flex;
   gap: 60px;
+  color: var(--purple);
 }
 
 .rol-columna, .impacto-columna {
@@ -466,19 +429,21 @@ body {
 
 .rol-columna p, .impacto-columna p {
   margin-bottom: 30px;
+  font-weight: 500;
 }
 
-
+.lista-check {
+  list-style: none;
+}
 
 .lista-check li {
   margin-bottom: 15px;
   font-weight: 600;
-  color: var(--morado-oscuro);
+  color: var(--purple);
   position: relative;
   padding-left: 30px;
 }
 
-/* Creamos un "check" morado claro con CSS */
 .lista-check li::before {
   content: '✔';
   position: absolute;
