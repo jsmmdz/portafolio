@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     boxes.push(box);
   }
 
-  // 2. Animamos la posición cuando el ratón se mueve
+  // 2. posición cuando el ratón se mueve
   window.addEventListener("mousemove", (e) => {
     
     // Hacemos visible la estela
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         x: e.clientX,
         y: e.clientY,
         duration: 0.05, 
-        delay: index * 0.002, // Efecto de cascada
+        delay: index * 0.002, // Efecto de cascada o separacion de los circulos
         ease: "power2.out"
       });
     });
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 3. Desvanecer si el ratón sale de la ventana
   document.addEventListener("mouseout", () => {
-    gsap.to(boxes, { opacity: 0, duration: 0.08 });
+    gsap.to(boxes, { opacity: 0, duration: 0.03 });
   });
 
 });
