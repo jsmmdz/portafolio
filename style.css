@@ -631,3 +631,65 @@ body, a, button, .btnhover, .btn_contactame, .btn-cta, .btn-primario, .btn-secun
   .rol-impacto { flex-direction: column; border-radius: 20px 20px 0 0; }
   .estadisticas-grid { flex-direction: column; gap: 30px; }
 }
+
+
+/* =========================================
+   9. SECCIÓN CONTACTO (GLASSMORPHISM)
+   ========================================= */
+.contacto {
+  padding: 100px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contacto form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+  margin-top: 30px;
+}
+
+.contacto input, .contacto textarea {
+  width: 100%;
+  padding: 18px 20px;
+  
+  /* Efecto cristal enlazado a tus variables */
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  
+  /* Tipografía */
+  color: var(--purple);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contacto input::placeholder, .contacto textarea::placeholder {
+  color: var(--medium-purple);
+  opacity: 0.7;
+}
+
+/* Efecto al hacer clic para escribir */
+.contacto input:focus, .contacto textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  background-color: rgba(255, 255, 255, 0.4); /* Se aclara sutilmente */
+  box-shadow: 0 0 15px rgba(52, 9, 58, 0.1);  /* Sombra morada suave */
+}
+
+.contacto textarea {
+  resize: vertical; /* Permite estirar hacia abajo, pero no hacia los lados */
+  min-height: 150px;
+}
+
+/* Ajustamos el botón para que ocupe todo el ancho del formulario */
+.contacto .btn-primario {
+  width: 100%;
+  font-size: 1rem;
+  padding: 18px;
+  margin-top: 10px;
+}
