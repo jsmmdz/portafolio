@@ -79,6 +79,7 @@ body {
   font-weight: 800;
   color: var(--purple);
   letter-spacing: 1px;
+  text-decoration: none;
 }
 
 .navbar .logo .acento {
@@ -160,8 +161,8 @@ div.hero {
 .hero-cta {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-home .hero-imagen img {
@@ -169,8 +170,12 @@ div.hero {
   height: 80vh;
   display: block;
   object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  
+  
+  object-position: 20% 50%; 
+  border-radius: 30px;
+  -webkit-mask-image: radial-gradient(circle at 40% 50%, black 30%, transparent 60%);
+  mask-image: radial-gradient(circle at 40% 50%, black 30%, transparent 60%);
 }
 
 /* Trabajos Destacados */
@@ -202,8 +207,32 @@ div.hero {
 .item-carrusel img {
   width: 100%;
   display: block;
-  border-radius: 12px; /* Añadido un poco de radio para que combine */
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
 }
+
+/* Obligamos al enlace a comportarse como una caja sólida */
+.link-proyecto {
+  display: block; 
+  border-radius: 12px;
+}
+
+
+.link-proyecto img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  transition: all 0.4s ease; 
+}
+
+
+.link-proyecto:hover img {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(52, 9, 58, 0.4);
+}
+
+
 
 /* =========================================
    5. PÁGINA: SOBRE MÍ (ABOUT ME)
